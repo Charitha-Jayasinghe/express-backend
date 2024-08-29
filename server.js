@@ -1,11 +1,14 @@
 const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
 const path = require('path'); // Import path module for resolving paths
+const cors = require('cors');
 
 const app = express();
 const port = 3001;
 
 app.use(express.json());
+app.use(cors());
+
 
 
 const sequelize = new Sequelize({

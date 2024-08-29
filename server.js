@@ -1,9 +1,12 @@
 const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
+const path = require('path'); // Import path module for resolving paths
+
 const app = express();
 const port = 3001;
 
 app.use(express.json());
+
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -30,9 +33,13 @@ sequelize.sync()
   .then(() => console.log('Database synced'))
   .catch(err => console.error('Database sync error:', err));
 
-app.get('/', (req, res) => {
-  res.send('up and running');
-});
+  app.get('/', async (req, res) => {
+    try {
+      res.json("up and running");
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
+  });
 
 app.get('/items', async (req, res) => {
   try {

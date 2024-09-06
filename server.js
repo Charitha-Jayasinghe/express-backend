@@ -4,6 +4,7 @@ const port = process.env.PORT || 3001;
 const sequelize = require('./database');
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./graphql');  // Import GraphQL schema
+const Item = require('./models/Item');  // Import the Item model
 
 app.use(express.json());
 

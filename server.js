@@ -3,8 +3,8 @@ const app = express();
 const port = process.env.PORT || 3001;
 const sequelize = require('./database');
 const { graphqlHTTP } = require('express-graphql');
-const schema = require('./graphql');  // Import GraphQL schema
-const Item = require('./models/Item');  // Import the Item model
+const schema = require('./graphql');  
+const Item = require('./models/Item');  
 
 app.use(express.json());
 
@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
-// Existing RESTful routes for items
+
 app.get('/items', async (req, res) => {
   try {
     const items = await Item.findAll();
@@ -71,7 +71,8 @@ app.delete('/items/:id', async (req, res) => {
   }
 });
 
-// GraphQL endpoint
+
+
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   graphiql: true,  // Enables GraphiQL UI for testing queries

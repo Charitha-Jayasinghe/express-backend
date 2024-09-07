@@ -16,6 +16,7 @@ const {
       name: { type: GraphQLString },
       quantity: { type: GraphQLInt },
       description: { type: GraphQLString },
+      price: { type: GraphQLString },
       createdAt: { type: GraphQLString },
       updatedAt: { type: GraphQLString },
     },
@@ -52,6 +53,7 @@ const {
           name: { type: new GraphQLNonNull(GraphQLString) },
           quantity: { type: new GraphQLNonNull(GraphQLInt) },
           description: { type: GraphQLString },
+          price: { type: GraphQLString },
         },
         async resolve(parent, args) {
           try {
@@ -75,6 +77,7 @@ const {
           name: { type: GraphQLString },
           quantity: { type: GraphQLInt },
           description: { type: GraphQLString },
+          price:{ type: GraphQLString },
         },
         async resolve(parent, args) {
           try {

@@ -15,6 +15,11 @@ const Item = sequelize.define('Item', {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  price: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: false,
+    defaultValue: 0.0,
+  },
 });
 
 module.exports = Item;
